@@ -59,7 +59,41 @@ def games_sum(input_list: list) -> int:
         total += value
     return total
 
-result = games_sum(games)
-print(result)
+result_part1 = games_sum(games)
+print(f'Part 1: {result_part1}')
+
+def fewest_cubes(input_dict: dict) -> int:
+    cube_set_power = []
+    for game_id, game_cubes in input_dict.items():
+        minimum_cubes = {
+            "green": 0,
+            "blue": 0,
+            "red": 0
+        }
+        
+        for cube in game_cubes:
+            if cube["Color"] == "green":
+                if cube["Quantity"] > minimum_cubes["green"]:
+                    minimum_cubes["green"] = cube["Quantity"]
+            elif cube["Color"] == "blue":
+                if cube["Quantity"] > minimum_cubes["blue"]:
+                    minimum_cubes["blue"] = cube["Quantity"]
+            elif cube["Color"] == "red":
+                if cube["Quantity"] > minimum_cubes["red"]:
+                    minimum_cubes["red"] = cube["Quantity"]
+        
+        cube_set_power.append(minimum_cubes["green"] * minimum_cubes["blue"] * minimum_cubes["red"])
+    
+    power_sum = sum(cube_set_power)
+    return power_sum
+
+result_part2= fewest_cubes(game_dict)
+print(f'Part 2: {result_part2}')
+        
+        
+
+
+        
+
     
                 
