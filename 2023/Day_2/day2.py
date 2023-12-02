@@ -65,35 +65,24 @@ print(f'Part 1: {result_part1}')
 def fewest_cubes(input_dict: dict) -> int:
     cube_set_power = []
     for game_id, game_cubes in input_dict.items():
-        minimum_cubes = {
-            "green": 0,
-            "blue": 0,
-            "red": 0
-        }
-        
+        minimum_cubes = [
+        {'Quantity': 0, 'Color': 'red'}, 
+        {'Quantity': 0, 'Color': 'green'}, 
+        {'Quantity': 0, 'Color': 'blue'}
+    ]
+        product = 1
         for cube in game_cubes:
-            if cube["Color"] == "green":
-                if cube["Quantity"] > minimum_cubes["green"]:
-                    minimum_cubes["green"] = cube["Quantity"]
-            elif cube["Color"] == "blue":
-                if cube["Quantity"] > minimum_cubes["blue"]:
-                    minimum_cubes["blue"] = cube["Quantity"]
-            elif cube["Color"] == "red":
-                if cube["Quantity"] > minimum_cubes["red"]:
-                    minimum_cubes["red"] = cube["Quantity"]
+            for cubes in minimum_cubes:
+                if cube["Color"] == cubes["Color"]:
+                    if cube["Quantity"] > cubes["Quantity"]:
+                        cubes["Quantity"] = cube["Quantity"]
         
-        cube_set_power.append(minimum_cubes["green"] * minimum_cubes["blue"] * minimum_cubes["red"])
+        for cube in minimum_cubes:
+            product *= cube['Quantity']
+        cube_set_power.append(product)
     
     power_sum = sum(cube_set_power)
     return power_sum
 
 result_part2= fewest_cubes(game_dict)
-print(f'Part 2: {result_part2}')
-        
-        
-
-
-        
-
-    
-                
+print(f'Part 2: {result_part2}')                
