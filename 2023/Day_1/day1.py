@@ -4,7 +4,7 @@ def read_file(input: str) -> list:
         input_list = file.read().strip().split("\n")
         return input_list
 
-day1_data = read_file("2023/Day 1/day1_input.txt")
+day1_data = read_file("2023/Day_1/day1_input.txt")
 
 def calibration_values(input_list: list) -> int:
     total = 0
