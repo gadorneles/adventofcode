@@ -47,8 +47,6 @@ def find_neighbors(input_list: list) -> list:
     return valid_numbers
 
 result_part1 = sum(find_neighbors(day1_data))
-print(result_part1)
-    
-
+print(f'Part 1: {result_part1}')
 
                 

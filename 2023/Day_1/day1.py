@@ -17,8 +17,8 @@ def calibration_values(input_list: list) -> int:
         total += value
     return total
 
-result = calibration_values(day1_data)
-print(result)
+result_part1 = calibration_values(day1_data)
+print(f'Part 1: {result_part1}')
 
 def replace_spelled_numbers(input_list: list) -> list:
     new_list = []
@@ -38,6 +38,6 @@ def replace_spelled_numbers(input_list: list) -> list:
     return new_list
     
 list_part2 = replace_spelled_numbers(day1_data)
-result_2 = calibration_values(list_part2)
-print(result_2)
+result_part2 = calibration_values(list_part2)
+print(f'Part 2: {result_part2}')                
 
