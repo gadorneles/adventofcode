@@ -37,7 +37,22 @@ def calculate_points(input_list: list) -> int:
 
     return results
 
-result = calculate_points(day4_data)
-print(sum(result))
-        
+result_part1 = sum(calculate_points(day4_data))
+print(f'Part 1: {result_part1}')
+
+
+def part2(input_list: list) -> int:
+    points = compare_cards(input_list)
+    cards = [1] * len(points)
+    for index, point in enumerate(points):
+        nums = point
+        while nums:
+            cards[index + nums] += cards[index]
+            nums -= 1
+    return cards
+
+result_part2 = sum(part2(day4_data))
+print(f'Part 2: {result_part2}')
+
+                
     
